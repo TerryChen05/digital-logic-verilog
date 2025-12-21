@@ -2,6 +2,7 @@
 `include "AND_gate.v"
 
 module AND_gate_tb;
+
     reg A;
     reg B;
     wire C;

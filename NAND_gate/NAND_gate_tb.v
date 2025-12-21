@@ -1,13 +1,13 @@
 `timescale 1ns/1ns
-`include "XOR_gate.v"
+`include "NAND_gate.v"
 
-module XOR_gate_tb;
+module NAND_gate_tb;
 
     reg A;
     reg B;
     output C;
 
-    XOR_gate uut (
+    NAND_gate uut (
         .A(A),
         .B(B),
         .C(C)
@@ -15,8 +15,8 @@ module XOR_gate_tb;
 
     initial begin
 
-        $dumpfile("XOR_gate_tb.vcd");
-        $dumpvars(0, XOR_gate_tb);
+        $dumpfile("NAND_gate_tb.vcd");
+        $dumpvars(0, NAND_gate_tb);
 
         A = 0; B = 0;
         #10

@@ -1,4 +1,4 @@
-module XOR_gate (
+module xor_gate (
     input A,
     input B,
     output C

@@ -1,4 +1,4 @@
-module NOR_gate (
+module nor_gate (
     input A,
     input B,
     output C

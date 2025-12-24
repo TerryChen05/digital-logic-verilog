@@ -1,13 +1,13 @@
 `timescale 1ns/1ns
-`include "NAND_gate.v"
+`include "nand_gate.v"
 
-module NAND_gate_tb;
+module nand_gate_tb;
 
     reg A;
     reg B;
     output C;
 
-    NAND_gate uut (
+    nand_gate uut (
         .A(A),
         .B(B),
         .C(C)
@@ -15,8 +15,8 @@ module NAND_gate_tb;
 
     initial begin
 
-        $dumpfile("NAND_gate_tb.vcd");
-        $dumpvars(0, NAND_gate_tb);
+        $dumpfile("nand_gate_tb.vcd");
+        $dumpvars(0, nand_gate_tb);
 
         A = 0; B = 0;
         #10

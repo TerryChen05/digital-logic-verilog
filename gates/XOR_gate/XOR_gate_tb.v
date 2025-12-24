@@ -1,13 +1,13 @@
 `timescale 1ns/1ns
-`include "XOR_gate.v"
+`include "xor_gate.v"
 
-module XOR_gate_tb;
+module xor_gate_tb;
 
     reg A;
     reg B;
     output C;
 
-    XOR_gate uut (
+    xor_gate uut (
         .A(A),
         .B(B),
         .C(C)
@@ -15,8 +15,8 @@ module XOR_gate_tb;
 
     initial begin
 
-        $dumpfile("XOR_gate_tb.vcd");
-        $dumpvars(0, XOR_gate_tb);
+        $dumpfile("xor_gate_tb.vcd");
+        $dumpvars(0, xor_gate_tb);
 
         A = 0; B = 0;
         #10

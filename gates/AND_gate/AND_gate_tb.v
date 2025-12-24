@@ -1,21 +1,21 @@
 `timescale 1ns/1ns
-`include "AND_gate.v"
+`include "and_gate.v"
 
-module AND_gate_tb;
+module and_gate_tb;
 
     reg A;
     reg B;
     wire C;
 
-    AND_gate uut ( // unit under test
+    and_gate uut ( // unit under test
         .A(A),
         .B(B),
         .C(C)
     );
 
     initial begin
-        $dumpfile("AND_gate_tb.vcd");
-        $dumpvars(0, AND_gate_tb);
+        $dumpfile("and_gate_tb.vcd");
+        $dumpvars(0, and_gate_tb);
 
         // Test case 1: A=0, B=0 => C=0
         A = 0; B = 0;

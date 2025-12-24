@@ -1,21 +1,21 @@
 `timescale 1ns/1ns
-`include "NOR_gate.v"
+`include "nor_gate.v"
 
-module NOR_gate_tb;
+module nor_gate_tb;
    
     reg A;
     reg B;
     output C;
 
-    NOR_gate uut (
+    nor_gate uut (
         .A(A),
         .B(B),
         .C(C)
     );
 
     initial begin
-        $dumpfile("NOR_gate_tb.vcd");
-        $dumpvars(0, NOR_gate_tb);
+        $dumpfile("nor_gate_tb.vcd");
+        $dumpvars(0, nor_gate_tb);
 
         A = 0; B = 0;
         #10

@@ -5,7 +5,7 @@ module mux_4to1 (
     output [3:0] out1,
     output [3:0] out2,
     output reg [3:0] out3,
-    output [3:0] out4
+    output [3:0] out4 
 );
 
     // method 1
@@ -33,7 +33,7 @@ module mux_4to1 (
 
     // method 4 (all inputs packed into 1 vector)
     assign out4 = {e[sel*4 +3], e[sel*4 +2], e[sel*4 +1], e[sel*4]};
-
+    
 endmodule 
 
 

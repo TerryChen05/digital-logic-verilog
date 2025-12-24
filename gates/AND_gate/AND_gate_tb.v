@@ -19,23 +19,19 @@ module and_gate_tb;
 
         // Test case 1: A=0, B=0 => C=0
         A = 0; B = 0;
-        #10;
-        $display("A=%b, B=%b => C=%b", A, B, C);
+        #10; $display("A=%b, B=%b => C=%b", A, B, C);
 
         // Test case 2: A=0, B=1 => C=0
         A = 0; B = 1;
-        #10;
-        $display("A=%b, B=%b => C=%b", A, B, C);
+        #10; $display("A=%b, B=%b => C=%b", A, B, C);
 
         // Test case 3: A=1, B=0 => C=0
         A = 1; B = 0;
-        #10;
-        $display("A=%b, B=%b => C=%b", A, B, C);
+        #10; $display("A=%b, B=%b => C=%b", A, B, C);
 
         // Test case 4: A=1, B=1 => C=1
         A = 1; B = 1;
-        #10;
-        $display("A=%b, B=%b => C=%b", A, B, C);
+        #10; $display("A=%b, B=%b => C=%b", A, B, C);
 
         $finish;
     end

@@ -6,11 +6,13 @@ module d_latch_tb;
     reg d;
     reg clk;
     output q;
+    output qn;
 
     d_latch uut (
         .d(d),
         .clk(clk),
-        .q(q)
+        .q(q),
+        .qn(qn)
     );
 
     initial begin

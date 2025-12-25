@@ -10,7 +10,7 @@ module signed_fadd_overflow (
     wire [8:0] sum_extend;   
     assign sum_extend = a + b + cin; // verilog addition automatically produces the carry-out bit
     
-    // assigned {cout, sum} = a + b + cin; // alternative method
+    // assign {cout, sum} = a + b + cin; // alternative method
 
     assign sum = sum_extend[7:0];
     assign cout = sum_extend[8];

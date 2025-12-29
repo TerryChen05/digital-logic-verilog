@@ -6,11 +6,11 @@ module carry_sel_adder (
 );
 
     wire cout_sel;
-    wire [7:0] sum0, sum1;
+    wire [7:0] sum0, sum1, sum_sel;
     wire cout0, cout1;
 
     // lower 8 bits
-    assign {cout_sel, sum[7:0]} = a[7:0] + b[7:0] + 1'b0; // cin = 0
+    assign {cout_sel, sum_sel} = a[7:0] + b[7:0] + 1'b0; // cin = 0
 
     // upper 8 bits
     assign {cout0, sum0} = a[15:8] + b[15:8] + 1'b0; // cin = 0
@@ -18,11 +18,12 @@ module carry_sel_adder (
 
     // mux: select correct adder based on lower bits output
     always @(*) begin
-		case(cout_sel)
-           1'b0 : begin cout = cout0; sum[15:8]= sum0; end
-           1'b1 : begin cout = cout1; sum[15:8]= sum1; end
-           default : begin cout = 1'b0; sum[15:8] = 8'b0; end
-		endcase
+      sum[7:0]= sum_sel;
+      case(cout_sel)
+            1'b0 : begin cout = cout0; sum[15:8]= sum0; end
+            1'b1 : begin cout = cout1; sum[15:8]= sum1; end
+            default : begin cout = 1'b0; sum[15:8] = 8'b0; end
+      endcase
     end
 
 endmodule

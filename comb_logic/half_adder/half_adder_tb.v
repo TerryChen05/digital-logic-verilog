@@ -8,6 +8,8 @@ module half_adder_tb;
     output sum;
     output carry;
 
+    integer i;
+
     half_adder uut (
         .a(a),
         .b(b),
@@ -19,21 +21,18 @@ module half_adder_tb;
         $dumpfile("half_adder_tb.vcd");
         $dumpvars(0, half_adder_tb);
 
+        $display(" a | b | sum | cout ");
+
+        for (i = 0; i < 4; i = i + 1) begin
+            {a, b} = i[1:0];
+            #10;
+            $display(" %b | %b | %2b  | %2b", a, b, sum, carry);
+        end
+
         // Test case 1: 0 + 0 => sum = 0, carry = 0
-        a = 0; b = 0;
-        #10 $display("A=%b, B=%b, sum=%b, carry=%b", a, b, sum, carry);
-
         // Test case 2: 0 + 1 => sum = 1, carry = 0
-        a = 0; b = 1;
-        #10 $display("A=%b, B=%b, sum=%b, carry=%b", a, b, sum, carry);
-
         // Test case 3: 1 + 0 => sum = 1, carry = 0
-        a = 1; b = 0;
-        #10 $display("A=%b, B=%b, sum=%b, carry=%b", a, b, sum, carry);
-
         // Test case 4: 1 + 1 => sum = 0, carry = 1
-        a = 1; b = 1;
-        #10 $display("A=%b, B=%b, sum=%b, carry=%b", a, b, sum, carry);
 
         $finish;
     end

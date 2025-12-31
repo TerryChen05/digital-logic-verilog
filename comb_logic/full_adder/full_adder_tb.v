@@ -9,6 +9,8 @@ module full_adder_tb;
     output sum;
     output cout;
 
+    integer i;
+
     full_adder uut (
         .a(a),
         .b(b),
@@ -21,37 +23,22 @@ module full_adder_tb;
         $dumpfile("full_adder_tb.vcd");
         $dumpvars(0, full_adder_tb);
 
-        a = 0; b = 0; cin = 0; // Test 1: 0 + 0 + 0 => sum = 0, cout = 0
-        #10
-        $display("A=%b, B=%b, cin=%b, sum=%b, cout=%b", a, b, cin, sum, cout);
-        
-        a = 0; b = 0; cin = 1; // Test 2: 0 + 0 + 1 => sum = 1, cout = 0
-        #10
-        $display("A=%b, B=%b, cin=%b, sum=%b, cout=%b", a, b, cin, sum, cout);
-        
-        a = 0; b = 1; cin = 0; // Test 3: 0 + 1 + 0 => sum = 1, cout = 0
-        #10
-        $display("A=%b, B=%b, cin=%b, sum=%b, cout=%b", a, b, cin, sum, cout);
-        
-        a = 0; b = 1; cin = 1; // Test 4: 0 + 1 + 1 => sum = 0, cout = 1
-        #10
-        $display("A=%b, B=%b, cin=%b, sum=%b, cout=%b", a, b, cin, sum, cout);
-        
-        a = 1; b = 0; cin = 0; // Test 5: 1 + 0 + 0 => sum = 1, cout = 0
-        #10
-        $display("A=%b, B=%b, cin=%b, sum=%b, cout=%b", a, b, cin, sum, cout);
-        
-        a = 1; b = 0; cin = 1; // Test 6: 1 + 0 + 1 => sum = 0, cout = 1
-        #10
-        $display("A=%b, B=%b, cin=%b, sum=%b, cout=%b", a, b, cin, sum, cout);
-        
-        a = 1; b = 1; cin = 0; // Test 7: 1 + 1 + 0 => sum = 0, cout = 1
-        #10
-        $display("A=%b, B=%b, cin=%b, sum=%b, cout=%b", a, b, cin, sum, cout);
-        
-        a = 1; b = 1; cin = 1; // Test 8: 1 + 1 + 1 => sum = 1, cout = 1
-        #10
-        $display("A=%b, B=%b, cin=%b, sum=%b, cout=%b", a, b, cin, sum, cout);
+        $display(" a  |  b  | cin | sum | cout ");
+
+        for (i = 0; i < 8; i = i + 1) begin
+            {a, b, cin} = i[2:0];
+            #10;
+            $display(" %b  |  %b  | %2b  | %2b  | %2b", a, b, cin, sum, cout);
+        end
+
+        // 0 + 0 + 0 => sum = 0, cout = 0
+        // 0 + 0 + 1 => sum = 1, cout = 0
+        // 0 + 1 + 0 => sum = 1, cout = 0
+        // 0 + 1 + 1 => sum = 0, cout = 1
+        // 1 + 0 + 0 => sum = 1, cout = 0
+        // 1 + 0 + 1 => sum = 0, cout = 1
+        // 1 + 1 + 0 => sum = 0, cout = 1
+        // 1 + 1 + 1 => sum = 1, cout = 1
 
         $finish;
     end

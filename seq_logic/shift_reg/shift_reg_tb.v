@@ -48,7 +48,8 @@ module shift_reg_tb;
         #5 $display("T=%0t | %b  |  %b   |  %b   |  %b   |  %b", $time, d, q[0], q[1], q[2], q[3]);
 
         // Test case 4: unchanged input (d=1 for 3 clk cycles) => (q=4'b1111)
-        #30 $display("T=%0t | %b  |  %b   |  %b   |  %b   |  %b", $time, d, q[0], q[1], q[2], q[3]); 
+        #30 $display("unchanged for 3 clk cycles . . . <= 1111");
+        $display("T=%0t | %b  |  %b   |  %b   |  %b   |  %b", $time, d, q[0], q[1], q[2], q[3]); 
 
         // Test case 5: reset = 1
         reset <= 1;

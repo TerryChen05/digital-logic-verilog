@@ -26,4 +26,13 @@ module sync_tff_upcounter ( // 4-bit synchronous T flip-flop upcounter with enab
         end
     end
 
+    /*
+    always @(posedge clk) begin // 4-bit sync upcounter (w/o enable)
+        if (reset)
+            count <= 4'b0000;
+        else
+            count <= count + 1'b1;
+    end
+    */
+
 endmodule

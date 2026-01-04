@@ -37,6 +37,10 @@ module sync_tff_upcounter_tb;
         reset <= 0; $display(" %-3t | %b  | %b  | %b  | %b", $time, q1, q2, q3, q4); #10
         
         for (i = 0; i < 18; i = i+1) begin
+            if (i == 6)
+                en <= 0; // enable deactivated for 2 clk cycles (at 0111)
+            if (i == 8)
+                en <= 1; // resume
             $display(" %-3t | %b  | %b  | %b  | %b", $time, q1, q2, q3, q4);
             #10;
         end

@@ -1,4 +1,4 @@
-module sync_tff_downcounter ( 
+module sync_tff_downcounter ( // 4-bit synchronous T flip-flop downcounter with enable
     input clk,
     input reset,
     input en,
@@ -25,5 +25,14 @@ module sync_tff_downcounter (
             q4 <= q4;
         end
     end
+
+    /*
+    always @(posedge clk) begin // 4-bit sync downcounter (w/o enable)
+        if (reset)
+            count <= 4'b1111;
+        else if (count != 4'b0000) // stop at 0
+            count <= count - 1'b1;
+    end
+    */
 
 endmodule

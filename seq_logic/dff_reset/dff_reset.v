@@ -13,13 +13,13 @@ module dff_reset ( // 8 bit D flip-flop
         end
        	else begin  // reset == 1
            q <= 0; 
-           qn <= 8'b11111111;
-        end
+           qn <= 8'hFF;
+        end 
     end
 
     /* Asynchronous reset version
     always @(posedge clk or posedge areset) begin
-        if (areset == 1)
+        if (areset == 0)
             q <= 0;
         else 
             q <= d;

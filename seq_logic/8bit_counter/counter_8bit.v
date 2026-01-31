@@ -1,4 +1,4 @@
-module counter_8bit (
+module counter_8bit ( // 8-bit upcounter 
     input clk,
     input en,
     input reset, // low active reset
@@ -15,7 +15,7 @@ module counter_8bit (
     end
     */
 
-    always @(posedge clk) begin
+    always @(posedge clk) begin // logic gate version
         if (reset == 1'b0) begin
             q <= 8'b0;
         end

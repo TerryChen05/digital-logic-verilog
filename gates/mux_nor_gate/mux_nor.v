@@ -1,7 +1,7 @@
 module nor_gate (
     input a, b,
-    output reg out
-)
+    output out
+);
     //  0 0 = 1
     //  0 1 = 0
     //  1 0 = 0
